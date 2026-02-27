@@ -1,6 +1,5 @@
 const renderSwords = async () => {
     const response = await fetch('/swords')
-    console.log(response)
     const data = await response.json()
 
     const mainContent = document.getElementById('main-content')
