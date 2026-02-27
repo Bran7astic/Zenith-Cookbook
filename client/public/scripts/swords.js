@@ -7,7 +7,7 @@ const renderSwords = async () => {
 
     if (data) {
         data.map(sword => {
-            const card = document.createElement('div')
+            const card = document.createElement('article')
             card.classList.add('card')
 
             const topContainer = document.createElement('div')
@@ -16,22 +16,27 @@ const renderSwords = async () => {
             const bottomContainer = document.createElement('div')
             bottomContainer.classList.add('bottom-container')
 
-            topContainer.style.backgroundImage = `url(${sword.image})`
-
             const swordName = document.createElement('h3')
             swordName.textContent = sword.name
             bottomContainer.append(swordName)
+            
+            const image = document.createElement('img')
+            console.log(sword.image)
+            image.src = sword.image
+            topContainer.appendChild(image)
+
 
             const damage = document.createElement('p')
             damage.textContent = `Damage: ${sword.damage}`
             bottomContainer.append(damage)
 
             const tooltip = document.createElement('p')
-            tooltip.textContent = `Tooltip: ${sword.tooltip}`
+            tooltip.style.fontStyle = 'italic'
+            tooltip.textContent = sword.tooltip ? `Tooltip: ${sword.tooltip}` : ''
             bottomContainer.appendChild(tooltip)
 
             const readMore = document.createElement('a')
-            readMore.textContent = "Read More >"
+            readMore.textContent = "Read More"
             readMore.setAttribute('role', 'button')
             readMore.href = `/swords/${sword.id}`
             bottomContainer.appendChild(readMore)
@@ -45,6 +50,7 @@ const renderSwords = async () => {
     } else {
         const noDataMsg = document.createElement('h2')
         noDataMsg.textContent = "No Swords Available 😔"
+        mainContent.append(noDataMsg)
     }
 }
 

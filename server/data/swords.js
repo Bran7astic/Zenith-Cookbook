@@ -44,7 +44,7 @@ const swordsData = [
         "name": "The Horseman's Blade",
         "damage": 45,
         "image": "https://terraria.wiki.gg/images/The_Horseman's_Blade.png",
-        "tooltip": "(no unique tooltip text shown on official Wiki — just stats)", 
+        "tooltip": "", 
         "gif": "https://terraria.wiki.gg/images/The_Horseman's_Blade_%28demo%29.gif"
     },
     {
