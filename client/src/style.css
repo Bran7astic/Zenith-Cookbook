@@ -95,6 +95,111 @@ button:focus-visible {
   }
 } */
 
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 50%;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: white;
+}
+
 .card img {
   width: 5%;
+}
+
+#gif {
+  border-radius: 20px;
+}
+
+#tooltip {
+  font-style: italic;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: transform 0.2s;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+article:hover {
+  transform: scale(1.05);
+}
+
+.top-container {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aquamarine; */
+}
+
+.preview-img {
+  
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32%;
+  /* width: 32%; */
+}
+
+#main-content{
+  padding: 5%;
+  display: flex;
+  width: 100%;
+  gap: 2%;
+  flex-wrap: wrap;
+}
+
+#sword-content {
+  padding: 5%;
+  display: flex;
+  width: 100%;
+  gap: 2%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  margin-bottom: 0;
+}
+
+body {
+  /* background-image: url(https://forums.terraria.org/index.php?attachments/attack_animation_of_zenith-gif.274447/); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url(https://forums.terraria.org/index.php?attachments/attack_animation_of_zenith-gif.274447/);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  filter: blur(8px);
 }
