@@ -10,21 +10,25 @@ const renderSwords = async () => {
             const card = document.createElement('article')
             card.classList.add('card')
 
+            const cardContainer = document.createElement('div')
+            card.classList.add('card-container')
+
             const topContainer = document.createElement('div')
             topContainer.classList.add('top-container')
             
             const bottomContainer = document.createElement('div')
             bottomContainer.classList.add('bottom-container')
 
-            const swordName = document.createElement('h3')
-            swordName.textContent = sword.name
-            bottomContainer.append(swordName)
             
             const image = document.createElement('img')
             console.log(sword.image)
             image.src = sword.image
+            image.className = 'preview-img'
             topContainer.appendChild(image)
-
+            
+            const swordName = document.createElement('h3')
+            swordName.textContent = sword.name
+            topContainer.append(swordName)
 
             const damage = document.createElement('p')
             damage.textContent = `Damage: ${sword.damage}`
@@ -41,8 +45,10 @@ const renderSwords = async () => {
             readMore.href = `/swords/${sword.id}`
             bottomContainer.appendChild(readMore)
 
-            card.appendChild(topContainer)
-            card.appendChild(bottomContainer)
+            cardContainer.appendChild(topContainer)
+            cardContainer.appendChild(bottomContainer)
+
+            card.appendChild(cardContainer)
 
             mainContent.appendChild(card)
 
@@ -52,14 +58,6 @@ const renderSwords = async () => {
         noDataMsg.textContent = "No Swords Available 😔"
         mainContent.append(noDataMsg)
     }
-}
-
-const requestedURL = window.location.href.split('/').pop()
-console.log(requestedURL)
-if (requestedURL) {
-    window.location.href = '../404.html'
-} else {
-    renderSwords()
 }
 
 const renderSwordDetail = async () => {
@@ -88,10 +86,13 @@ const renderSwordDetail = async () => {
         const tooltip = document.getElementById('tooltip')
         tooltip.textContent = sword.tooltip
     } else {
-        const noSwordMsg = document.createElement('h2')
-        noSwordMsg.textContent = "No swords found :("
-        swordContent.appendChild(noSwordMsg)
+        window.location.href = '../404.html';
     }
 }
 
-renderSwordDetail()
+if (document.getElementById('main-content')) {
+    renderSwords();
+}
+if (document.getElementById('sword-content')) {
+    renderSwordDetail();
+}

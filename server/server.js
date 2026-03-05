@@ -1,6 +1,7 @@
 import express from 'express'
 const app = express() // instantiate express
 import swordsRouter from './routes/swords.js'
+import './config/dotenv.js'
 
 app.use('/public', express.static('./public'))
 
